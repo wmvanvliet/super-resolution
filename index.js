@@ -40,11 +40,12 @@ async function load() {
 
   inputVideo.play();
 
-  // Make the zoomRect follow the mouse cursor
+  // Make the zoomRect follow the mouse cursor. Make sure it says within the
+  // boundaries of the inputVideo element.
   let inputVideoPos = inputVideo.getBoundingClientRect();
   function onMouseMove(e) {
-    zoomRect.style.left = Math.max(inputVideoPos.left, Math.min(inputVideoPos.right - zoomRectWidth - 1, e.pageX)) + 'px';
-    zoomRect.style.top = Math.max(inputVideoPos.top, Math.min(inputVideoPos.bottom - zoomRectHeight - 1, e.pageY)) + 'px';
+    zoomRect.style.left = clamp(e.pageX, inputVideoPos.left, nputVideoPos.right - zoomRectWidth - 1) + 'px';
+    zoomRect.style.top = clamp(e.pageY, inputVideoPos.top, inputVideoPos.bottom - zoomRectHeight - 1) + 'px';
   }
   document.addEventListener('mousemove', onMouseMove);
 
