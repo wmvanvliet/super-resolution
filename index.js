@@ -40,12 +40,11 @@ async function load() {
 
   inputVideo.play();
 
-  // Make the zoomRect follow the mouse cursor. Make sure it says within the
-  // boundaries of the inputVideo element.
+  // Make the zoomRect follow the mouse cursor
   let inputVideoPos = inputVideo.getBoundingClientRect();
   function onMouseMove(e) {
-    zoomRect.style.left = clamp(e.pageX, inputVideoPos.left, nputVideoPos.right - zoomRectWidth - 1) + 'px';
-    zoomRect.style.top = clamp(e.pageY, inputVideoPos.top, inputVideoPos.bottom - zoomRectHeight - 1) + 'px';
+    zoomRect.style.left = Math.max(inputVideoPos.left, Math.min(inputVideoPos.right - zoomRectWidth - 1, e.pageX)) + 'px';
+    zoomRect.style.top = Math.max(inputVideoPos.top, Math.min(inputVideoPos.bottom - zoomRectHeight - 1, e.pageY)) + 'px';
   }
   document.addEventListener('mousemove', onMouseMove);
 
@@ -187,13 +186,4 @@ function yuv2rgb(y, u, v){
   const g = y - 0.3455 * (u - 128) - (0.7169 * (v-128));
   const b = y + 1.7790 * (u - 128);
   return({r:r, g:g, b:b});
-}
-
-
-/**
- * Clamp a value between low and high.
- */
-function clamp(n, low, high) {
-  if(n < low) return(low);
-  if(n > high) return(high);
 }
