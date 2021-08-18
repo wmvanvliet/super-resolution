@@ -1,0 +1,4 @@
+*.swp
+vpf/weights/*.pth
+*.so
+*.pyc

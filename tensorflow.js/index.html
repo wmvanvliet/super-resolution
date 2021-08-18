@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Zoom and enhance!</title>
+    <meta charset="utf-8">
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs/dist/tf.min.js" type="text/javascript"></script>
+    <script src="index.js"></script>
+    <style>
+      #inputVideo {
+        cursor: none; /* we hide the mouse cursor, because the zoom rect will become our cursor */
+      }
+      
+      #zoomRect {
+        position: absolute;
+        left: 20px; /* starting position */
+        top: 20px;
+        width: 64px;
+        height: 64px;
+        border: 1px solid red;
+        cursor: none;
+      }
+    </style>
+  </head>  
+  <body onload="load()">
+    <video src="example.mp4" width="640" height="360" id="inputVideo" loop></video>
+    <canvas width="256", height="256", id="scaledVideo"></canvas>
+    <canvas width="256", height="256", id="outputVideo"></canvas>
+    <div id="zoomRect"></div>
+  </body>
+</html>

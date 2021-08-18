@@ -1,12 +1,8 @@
-# ESPCN super-resolution demo in the browser.
+# Super-resolution experiments
 
-A demo of the ESPCN super resolution algorithm running in the browser, using
-[TensorflowJS](https://www.tensorflow.org/js).
+ 1. Running in the browser using Tensorflow.js
+ 2. Running the decode -> superresolution -> encode loop all on the GPU using nVidia VPF
 
-The model was converted from the [PyTorch
-implementation](https://github.com/Lornatang/ESPCN-PyTorch)
-by [Liu Changyu](https://github.com/Lornatang).
+ See the subfolders for more instructions.
 
-See it in action here: https://users.aalto.fi/~vanvlm1/super_resolution
-
-Author: Marijn van Vliet.
+ Author: Marijn van Vliet
