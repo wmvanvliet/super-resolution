@@ -1,4 +1,4 @@
-#
+# Based off an example for this the copyright was:
 # Copyright 2021 Kognia Sports Intelligence
 # Copyright 2021 NVIDIA Corporation
 #
@@ -15,8 +15,6 @@
 # limitations under the License.
 #
 
-# Starting from Python 3.8 DLL search policy has changed.
-# We need to add path to CUDA DLLs explicitly.
 import sys
 
 import torch
@@ -111,10 +109,10 @@ def main(gpuID, encFilePath, dstFilePath):
 if __name__ == "__main__":
     print('This sample transcode and process with pytorch an input video on '
           'the first GPU.')
-    print('Usage: SamplePyTorch.py $input_file $output_file.')
+    print('Usage: superresolution.py $input_file $output_file.')
 
-    if(len(sys.argv) < 4):
-        print("Provide gpu ID, path to input and output files")
+    if(len(sys.argv) < 3):
+        print("Provide path to input and output files")
         exit(1)
 
     gpuID = 0
